@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelResult: UILabel!
     @IBOutlet weak var switchVision: UISwitch!
     
-    private let inceptionv3model = Inceptionv3()
+    private let coreMLModel = Inceptionv3()
     private var requests = [VNRequest]()
     
     private let session = AVCaptureSession()
