@@ -128,7 +128,7 @@ class ViewController: UIViewController {
     
     // MARK: Setup Vision Framework
     func setupVision() {
-        guard let visionModel = try? VNCoreMLModel(for: inceptionv3model.model) else {
+        guard let visionModel = try? VNCoreMLModel(for: coreMLModel.model) else {
             fatalError("can't load Vision ML model")
         }
         // MARK: Vision CoreML Prediction
@@ -200,7 +200,7 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
             return
         }
         do {
-            let prediction = try self.inceptionv3model.prediction(image: self.resize(pixelBuffer: pixelBuffer)!)
+            let prediction = try self.coreMLModel.prediction(image: self.resize(pixelBuffer: pixelBuffer)!)
             
             DispatchQueue.main.async {
                 if let prob = prediction.classLabelProbs[prediction.classLabel] {
